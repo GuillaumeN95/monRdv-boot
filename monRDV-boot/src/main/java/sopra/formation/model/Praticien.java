@@ -15,7 +15,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
+@JsonView(Views.ViewCommon.class)
 public class Praticien {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,13 +44,17 @@ public class Praticien {
 	private boolean espece;
 	private Integer dureeCreneau;
 	@OneToMany(mappedBy = "praticien")
+	@JsonView(Views.ViewSpecialite.class)
 	private List<Specialite> specialites = new ArrayList<Specialite>();
 	@OneToMany(mappedBy = "praticien")
+	@JsonView(Views.ViewCreneau.class)
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
 	@OneToMany(mappedBy = "praticien")
+	@JsonView(Views.ViewLieu.class)
 	private List<Lieu> lieux = new ArrayList<Lieu>();
 	@OneToOne
 	@JoinColumn(name="utilisateur_id")
+	@JsonView(Views.ViewUtilisateur.class)
 	private Utilisateur utilisateur;
 
 	public Praticien() {
