@@ -14,7 +14,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
+@JsonView(Views.ViewCommon.class)
 public class Utilisateur {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +32,10 @@ public class Utilisateur {
 	@Column(length = 15)
 	private Type type;
 	@OneToOne(mappedBy = "utilisateur")
+	@JsonView(Views.ViewPraticien.class)
 	private Praticien praticien;
 	@OneToMany(mappedBy = "utilisateur")
+	@JsonView(Views.ViewPatient.class)
 	private List<Patient> patients = new ArrayList<Patient>();
 
 	public Utilisateur() {
