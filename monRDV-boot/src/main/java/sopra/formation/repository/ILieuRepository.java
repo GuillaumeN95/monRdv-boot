@@ -1,8 +1,8 @@
-package sopra.monRdv.repository;
+package sopra.formation.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import sopra.monRdv.model.Lieu;
+import sopra.formation.model.Lieu;
 
 public interface ILieuRepository extends JpaRepository<Lieu, Long> {
 

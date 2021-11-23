@@ -1,8 +1,8 @@
-package sopra.monRdv.repository;
+package sopra.formation.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import sopra.monRdv.model.Motif;
+import sopra.formation.model.Motif;
 
 public interface IMotifRepository extends JpaRepository<Motif, Long> {
 

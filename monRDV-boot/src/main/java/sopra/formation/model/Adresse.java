@@ -1,4 +1,4 @@
-package sopra.monRdv.model;
+package sopra.formation.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

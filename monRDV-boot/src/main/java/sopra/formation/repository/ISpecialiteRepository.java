@@ -1,8 +1,8 @@
-package sopra.monRdv.repository;
+package sopra.formation.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import sopra.monRdv.model.Specialite;
+import sopra.formation.model.Specialite;
 
 public interface ISpecialiteRepository extends JpaRepository<Specialite, Long> {
 

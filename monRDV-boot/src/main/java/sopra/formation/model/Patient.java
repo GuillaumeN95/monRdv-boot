@@ -1,4 +1,4 @@
-package sopra.monRdv.model;
+package sopra.formation.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

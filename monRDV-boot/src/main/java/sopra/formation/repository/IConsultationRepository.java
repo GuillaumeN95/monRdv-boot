@@ -1,8 +1,8 @@
-package sopra.monRdv.repository;
+package sopra.formation.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import sopra.monRdv.model.Consultation;
+import sopra.formation.model.Consultation;
 
 public interface IConsultationRepository extends JpaRepository<Consultation, Long> {
 

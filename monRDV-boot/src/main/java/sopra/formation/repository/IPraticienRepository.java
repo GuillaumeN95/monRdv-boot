@@ -1,8 +1,8 @@
-package sopra.monRdv.repository;
+package sopra.formation.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import sopra.monRdv.model.Praticien;
+import sopra.formation.model.Praticien;
 
 public interface IPraticienRepository extends JpaRepository<Praticien, Long> {
 

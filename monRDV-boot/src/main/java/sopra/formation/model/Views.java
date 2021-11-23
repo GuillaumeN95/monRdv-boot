@@ -1,4 +1,4 @@
-package sopra.monRdv.model;
+package sopra.formation.model;
 
 public class Views {
 	public static class ViewCommon {

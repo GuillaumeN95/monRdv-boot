@@ -1,4 +1,4 @@
-package monRdv.web;
+package sopra.formation.web;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,8 +23,8 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import sopra.formation.model.Views;
-import sopra.monRdv.model.Patient;
-import sopra.monRdv.repository.IPatientRepository;
+import sopra.formation.model.Patient;
+import sopra.formation.repository.IPatientRepository;
 
 @RestController
 @RequestMapping("/patient")

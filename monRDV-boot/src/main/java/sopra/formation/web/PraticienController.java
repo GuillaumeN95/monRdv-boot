@@ -1,4 +1,4 @@
-package monRdv.web;
+package sopra.formation.web;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,14 +15,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import monRdv.web.validator.EvaluationValidator;
-import sopra.monRdv.model.Civilite;
-import sopra.monRdv.model.Creneau;
-import sopra.monRdv.model.Lieu;
-import sopra.monRdv.model.Praticien;
-import sopra.monRdv.model.Secteur;
-import sopra.monRdv.model.Specialite;
-import sopra.monRdv.repository.IPraticienRepository;
+import sopra.formation.model.Civilite;
+import sopra.formation.model.Creneau;
+import sopra.formation.model.Lieu;
+import sopra.formation.model.Praticien;
+import sopra.formation.model.Secteur;
+import sopra.formation.model.Specialite;
+import sopra.formation.repository.IPraticienRepository;
 
 @Controller
 @RequestMapping("/praticien")

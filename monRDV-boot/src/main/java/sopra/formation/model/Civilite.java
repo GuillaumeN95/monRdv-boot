@@ -1,4 +1,4 @@
-package sopra.monRdv.model;
+package sopra.formation.model;
 
 public enum Civilite {
 	M("Monsieur"), MME("Madame"), MLLE("Mademoiselle");

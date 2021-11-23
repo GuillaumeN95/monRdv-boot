@@ -1,4 +1,4 @@
-package monRdv.web;
+package sopra.formation.web;
 
 import java.util.Date;
 
