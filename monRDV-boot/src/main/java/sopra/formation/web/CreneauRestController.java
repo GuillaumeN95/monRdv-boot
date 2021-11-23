@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import sopra.formation.model.Views;
 import sopra.formation.model.Creneau;
+import sopra.formation.model.Lieu;
 import sopra.formation.repository.ICreneauRepository;
 
 @RestController
@@ -56,10 +57,10 @@ public class CreneauRestController {
 	
 	@GetMapping("{id}/detail")
 	@JsonView(Views.ViewCreneauDetail.class)
-	public Creneau detail(@PathVariable Long idPraticien) {
-		List<Creneau> optCreneau = creneauRepo.findAllCreneauByIdPraticien(idPraticien);
-
-		if (optCreneau.) {
+	public Creneau detail(@PathVariable("id") Long idPraticien) {
+		Optional<Creneau> optCreneau = creneauRepo.findAllCreneauByIdPraticien(idPraticien);
+		
+		if (optCreneau.isPresent()) {
 			return optCreneau.get();
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "creneau non trouvé");

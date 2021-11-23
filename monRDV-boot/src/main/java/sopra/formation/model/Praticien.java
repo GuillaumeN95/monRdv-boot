@@ -47,10 +47,10 @@ public class Praticien {
 	@JsonView(Views.ViewSpecialite.class)
 	private List<Specialite> specialites = new ArrayList<Specialite>();
 	@OneToMany(mappedBy = "praticien")
-	@JsonView(Views.ViewCreneau.class)
+	@JsonView(Views.ViewPraticien.class)
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
 	@OneToMany(mappedBy = "praticien")
-	@JsonView(Views.ViewLieu.class)
+	@JsonView(Views.ViewPraticien.class)
 	private List<Lieu> lieux = new ArrayList<Lieu>();
 	@OneToOne
 	@JoinColumn(name="utilisateur_id")
@@ -58,7 +58,7 @@ public class Praticien {
 	private Utilisateur utilisateur;
 
 	public Praticien() {
-		super();
+		super(); 
 	}
 
 	public Long getId() {

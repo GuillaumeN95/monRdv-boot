@@ -16,6 +16,9 @@ public class Views {
 	public static class ViewCreneau extends ViewCommon {
 	}
 	
+	public static class ViewCreneauDetail extends ViewCreneau {
+	}
+	
 	public static class ViewLieu extends ViewCommon {
 	}
 	
