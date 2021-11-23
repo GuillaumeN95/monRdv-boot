@@ -34,7 +34,7 @@ public class Consultation {
 	@JsonView(Views.ViewPatient.class)
 	private Patient patient;
 	@OneToMany(mappedBy = "consultation")
-	@JsonView(Views.ViewCreneau.class)
+	@JsonView(Views.ViewPatient.class)
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
 
 	public Consultation() {
