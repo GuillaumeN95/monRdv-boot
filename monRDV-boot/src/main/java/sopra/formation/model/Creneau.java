@@ -16,10 +16,10 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 
 @Entity
+@JsonView(Views.ViewCommon.class)
 public class Creneau {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
 	private int version;

@@ -56,15 +56,16 @@ public class CreneauRestController {
 	
 	@GetMapping("{id}/detail")
 	@JsonView(Views.ViewCreneauDetail.class)
-	public Creneau detail(@PathVariable Long id) {
-		Optional<Creneau> optCreneau = creneauRepo.findById(id);
+	public Creneau detail(@PathVariable Long idPraticien) {
+		List<Creneau> optCreneau = creneauRepo.findAllCreneauByIdPraticien(idPraticien);
 
-		if (optCreneau.isPresent()) {
+		if (optCreneau.) {
 			return optCreneau.get();
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "creneau non trouvé");
 		}
 	}
+	
 
 	@PostMapping("")
 	@JsonView(Views.ViewCreneau.class)
@@ -86,6 +87,7 @@ public class CreneauRestController {
 		return creneau;
 	}
 
+	
 	
 	
 	@DeleteMapping("/{id}")
