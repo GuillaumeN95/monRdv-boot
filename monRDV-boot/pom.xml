@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>sopra.formation</groupId>
-	<artifactId>formation-boot</artifactId>
+	<artifactId>monRDV-boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>formation-boot</name>
-	<description>Demo project for Spring Boot</description>
+	<name>monRDV-boot</name>
+	<description>Project monRDV </description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
