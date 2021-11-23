@@ -15,7 +15,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import sopra.formation.model.Views;
+
 @Entity
+@JsonView(Views.ViewCommon.class)
 public class Patient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
