@@ -38,11 +38,14 @@ public class Patient {
 	private String email;
 	private boolean principal;
 	@Embedded
+	@JsonView(Views.ViewAdresse.class)
 	private Adresse adresse;
 	@OneToMany(mappedBy = "patient")
+	@JsonView(Views.ViewConsultation.class)
 	private List<Consultation> consultations = new ArrayList<Consultation>();
 	@ManyToOne
 	@JoinColumn(name = "utilisateur_id")
+	@JsonView(Views.ViewUtilisateur.class)
 	private Utilisateur utilisateur;
 
 	public Patient() {
