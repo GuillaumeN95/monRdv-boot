@@ -33,7 +33,7 @@ export class Creneau{
     lieu: Lieu;
 
 
-    constructor(id?: number,version?: number, debut?: string, duree?: number, dispo?: boolean,praticien?: Practicien,consultation?: Consultation,lieu?: Lieu){
+    constructor(id?: number,version?: number, debut?: string, duree?: number, dispo?: boolean,praticien?: Praticien,consultation?: Consultation,lieu?: Lieu){
         this.id = id;
         this.version = version;
         this.debut = debut;
