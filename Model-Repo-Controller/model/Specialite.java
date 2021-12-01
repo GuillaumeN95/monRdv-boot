@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @JsonView(Views.ViewCommon.class)
-public class Lieu {
+public class Specialite {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -26,26 +25,20 @@ public class Lieu {
 	private int version;
 	@Column(length = 100)
 	private String nom;
-	@Column(length = 1000)
-	private String informations;
-	@Embedded
-	@JsonView(Views.ViewAdresse.class)
-	private Adresse adresse;
 	@ManyToOne
 	@JoinColumn(name = "praticien_id")
-	@JsonView(Views.ViewLieu.class)
+	@JsonView(Views.ViewSpecialite.class)
 	private Praticien praticien;
-	@OneToMany(mappedBy = "lieu")
-	@JsonView(Views.ViewLieu.class)
-	private List<Creneau> creneaux = new ArrayList<Creneau>();
+	@OneToMany(mappedBy = "specialite")
+	@JsonView(Views.ViewSpecialiteDetail.class)
+	private List<Motif> motifs = new ArrayList<Motif>();
 
-	public Lieu() {
+	public Specialite() {
 		super();
 	}
 	
-	public Lieu(String nom, String informations) {
+	public Specialite(String nom) {
 		this.nom = nom;
-		this.informations = informations;
 	}
 
 	public Long getId() {
@@ -72,22 +65,6 @@ public class Lieu {
 		this.nom = nom;
 	}
 
-	public String getInformations() {
-		return informations;
-	}
-
-	public void setInformations(String informations) {
-		this.informations = informations;
-	}
-
-	public Adresse getAdresse() {
-		return adresse;
-	}
-
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
-
 	public Praticien getPraticien() {
 		return praticien;
 	}
@@ -96,12 +73,12 @@ public class Lieu {
 		this.praticien = praticien;
 	}
 
-	public List<Creneau> getCreneaux() {
-		return creneaux;
+	public List<Motif> getMotifs() {
+		return motifs;
 	}
 
-	public void setCreneaux(List<Creneau> creneaux) {
-		this.creneaux = creneaux;
+	public void setMotifs(List<Motif> motifs) {
+		this.motifs = motifs;
 	}
 
 }

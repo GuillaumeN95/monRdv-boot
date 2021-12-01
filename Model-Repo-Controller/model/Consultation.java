@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,34 +17,28 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @JsonView(Views.ViewCommon.class)
-public class Lieu {
+public class Consultation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Version
 	private int version;
-	@Column(length = 100)
-	private String nom;
 	@Column(length = 1000)
-	private String informations;
-	@Embedded
-	@JsonView(Views.ViewAdresse.class)
-	private Adresse adresse;
+	private String instructions;
 	@ManyToOne
-	@JoinColumn(name = "praticien_id")
-	@JsonView(Views.ViewLieu.class)
-	private Praticien praticien;
-	@OneToMany(mappedBy = "lieu")
-	@JsonView(Views.ViewLieu.class)
+	@JoinColumn(name = "motif_id")
+	@JsonView(Views.ViewConsultation.class)
+	private Motif motif;
+	@ManyToOne
+	@JoinColumn(name = "patient_id")
+	@JsonView(Views.ViewConsultation.class)
+	private Patient patient;
+	@OneToMany(mappedBy = "consultation")
+	@JsonView(Views.ViewConsultationDetail.class)
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
 
-	public Lieu() {
+	public Consultation() {
 		super();
-	}
-	
-	public Lieu(String nom, String informations) {
-		this.nom = nom;
-		this.informations = informations;
 	}
 
 	public Long getId() {
@@ -64,36 +57,28 @@ public class Lieu {
 		this.version = version;
 	}
 
-	public String getNom() {
-		return nom;
+	public String getInstructions() {
+		return instructions;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setInstructions(String instructions) {
+		this.instructions = instructions;
 	}
 
-	public String getInformations() {
-		return informations;
+	public Motif getMotif() {
+		return motif;
 	}
 
-	public void setInformations(String informations) {
-		this.informations = informations;
+	public void setMotif(Motif motif) {
+		this.motif = motif;
 	}
 
-	public Adresse getAdresse() {
-		return adresse;
+	public Patient getPatient() {
+		return patient;
 	}
 
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
-
-	public Praticien getPraticien() {
-		return praticien;
-	}
-
-	public void setPraticien(Praticien praticien) {
-		this.praticien = praticien;
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 
 	public List<Creneau> getCreneaux() {

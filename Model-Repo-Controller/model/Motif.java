@@ -15,29 +15,28 @@ import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import sopra.formation.model.Views;
+
 @Entity
 @JsonView(Views.ViewCommon.class)
-public class Consultation {
+public class Motif {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Version
 	private int version;
-	@Column(length = 1000)
-	private String instructions;
+	@Column(length = 100)
+	private String nom;
+	private int nbCreneau;
 	@ManyToOne
-	@JoinColumn(name = "motif_id")
+	@JoinColumn(name = "specialite_id")
 	@JsonView(Views.ViewMotif.class)
-	private Motif motif;
-	@ManyToOne
-	@JoinColumn(name = "patient_id")
-	@JsonView(Views.ViewPatient.class)
-	private Patient patient;
-	@OneToMany(mappedBy = "consultation")
-	@JsonView(Views.ViewPatient.class)
-	private List<Creneau> creneaux = new ArrayList<Creneau>();
+	private Specialite specialite;
+	@OneToMany(mappedBy = "motif")
+	@JsonView(Views.ViewMotifDetail.class)
+	private List<Consultation> consultations = new ArrayList<Consultation>();
 
-	public Consultation() {
+	public Motif() {
 		super();
 	}
 
@@ -57,36 +56,36 @@ public class Consultation {
 		this.version = version;
 	}
 
-	public String getInstructions() {
-		return instructions;
+	public String getNom() {
+		return nom;
 	}
 
-	public void setInstructions(String instructions) {
-		this.instructions = instructions;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
-	public Motif getMotif() {
-		return motif;
+	public int getNbCreneau() {
+		return nbCreneau;
 	}
 
-	public void setMotif(Motif motif) {
-		this.motif = motif;
+	public void setNbCreneau(int nbCreneau) {
+		this.nbCreneau = nbCreneau;
 	}
 
-	public Patient getPatient() {
-		return patient;
+	public Specialite getSpecialite() {
+		return specialite;
 	}
 
-	public void setPatient(Patient patient) {
-		this.patient = patient;
+	public void setSpecialite(Specialite specialite) {
+		this.specialite = specialite;
 	}
 
-	public List<Creneau> getCreneaux() {
-		return creneaux;
+	public List<Consultation> getConsultations() {
+		return consultations;
 	}
 
-	public void setCreneaux(List<Creneau> creneaux) {
-		this.creneaux = creneaux;
+	public void setConsultations(List<Consultation> consultations) {
+		this.consultations = consultations;
 	}
 
 }

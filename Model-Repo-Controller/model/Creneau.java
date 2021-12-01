@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 
 
@@ -29,7 +28,7 @@ public class Creneau {
 	private boolean dispo;
 	@ManyToOne
 	@JoinColumn(name = "praticien_id")
-	@JsonView(Views.ViewCreneauDetail.class)
+	@JsonView(Views.ViewCreneauByPraticien.class)
 	private Praticien praticien;
 	@ManyToOne
 	@JoinColumn(name = "consultation_id")

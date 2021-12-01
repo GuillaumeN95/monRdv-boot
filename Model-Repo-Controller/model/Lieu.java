@@ -33,10 +33,10 @@ public class Lieu {
 	private Adresse adresse;
 	@ManyToOne
 	@JoinColumn(name = "praticien_id")
-	@JsonView(Views.ViewLieu.class)
+	@JsonView(Views.ViewPraticien.class)
 	private Praticien praticien;
 	@OneToMany(mappedBy = "lieu")
-	@JsonView(Views.ViewLieu.class)
+	@JsonView(Views.ViewCreneau.class)
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
 
 	public Lieu() {

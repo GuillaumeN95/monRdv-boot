@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import sopra.formation.model.Views;
 import sopra.formation.model.Creneau;
-import sopra.formation.model.Lieu;
+import sopra.formation.model.Praticien;
 import sopra.formation.repository.ICreneauRepository;
 
 @RestController
@@ -55,18 +56,21 @@ public class CreneauRestController {
 		}
 	}
 	
-	@GetMapping("{id}/detail")
-	@JsonView(Views.ViewCreneauDetail.class)
-	public Creneau detail(@PathVariable("id") Long idPraticien) {
-		Optional<Creneau> optCreneau = creneauRepo.findAllCreneauByIdPraticien(idPraticien);
-		
-		if (optCreneau.isPresent()) {
-			return optCreneau.get();
-		} else {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "creneau non trouvé");
-		}
+	@GetMapping("/by-praticien/{id}")
+	@JsonView(Views.ViewCreneauByPraticien.class)
+	public List<Creneau> findAllByPraticien(@PathVariable("id") Long idPraticien) {
+		List<Creneau> creneaux = creneauRepo.findByPraticien(idPraticien);
+
+		return creneaux;
 	}
 	
+	@GetMapping("/by-dispo/{id}")
+	@JsonView(Views.ViewCreneauByPraticien.class)
+	public List <Creneau>findCreneauByPraticien(@PathVariable("id") Long idPraticien) {
+		List <Creneau> dispo = creneauRepo.findDispoByPraticien(idPraticien);
+
+		return dispo;
+	}
 
 	@PostMapping("")
 	@JsonView(Views.ViewCreneau.class)

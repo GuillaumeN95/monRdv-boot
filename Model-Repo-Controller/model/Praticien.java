@@ -44,21 +44,21 @@ public class Praticien {
 	private boolean espece;
 	private Integer dureeCreneau;
 	@OneToMany(mappedBy = "praticien")
-	@JsonView(Views.ViewSpecialite.class)
+	@JsonView(Views.ViewPraticienDetail.class)
 	private List<Specialite> specialites = new ArrayList<Specialite>();
 	@OneToMany(mappedBy = "praticien")
-	@JsonView(Views.ViewPraticien.class)
+	@JsonView(Views.ViewPraticienDetail.class)
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
 	@OneToMany(mappedBy = "praticien")
-	@JsonView(Views.ViewPraticien.class)
+	@JsonView(Views.ViewPraticienDetail.class)
 	private List<Lieu> lieux = new ArrayList<Lieu>();
 	@OneToOne
 	@JoinColumn(name="utilisateur_id")
-	@JsonView(Views.ViewUtilisateur.class)
+	@JsonView(Views.ViewPraticien.class)
 	private Utilisateur utilisateur;
 
 	public Praticien() {
-		super(); 
+		super();
 	}
 
 	public Long getId() {
