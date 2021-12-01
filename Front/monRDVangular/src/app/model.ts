@@ -1,5 +1,6 @@
 import { ConsultationComponent } from "./consultation/consultation.component";
 import { LieuComponent } from "./lieu/lieu.component";
+import { PraticienComponent } from "./praticien/praticien.component";
 
 export class Consultation
 {
@@ -27,7 +28,7 @@ export class Creneau{
     debut: string;
     duree: number;
     dispo: boolean;
-    praticien: Practicien;
+    praticien: Praticien;
     consultation: Consultation;
     lieu: Lieu;
 
@@ -86,3 +87,23 @@ export class Adresse {
         this.ville = ville;
     }
 }
+
+export class Lieu{
+    id: number;
+    version: number;
+    nom: string;
+    informations: string;
+    adresse: Adresse;
+    praticien: Praticien;
+
+    
+    constructor(id?: number,version?: number,nom?: string,prenom?: string,dtNaissance?: string,email?: string,telephone?: string,principal?:boolean,adresse?: Adresse){
+        this.id = id;
+        this.version = version;
+        this.nom = nom;
+        this.informations = this.informations;
+        this.adresse=adresse;
+        this.praticien = this.praticien;
+}
+
+

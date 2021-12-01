@@ -6,13 +6,13 @@ import { Lieu } from '../model';
 @Injectable({
   providedIn: 'root'
 })
-export class FormateurHttpService {
+export class LieuService {
 
   lieux: Array<Lieu>=new Array<Lieu>();
   lieuUrl: string;
 
-  constructor(private http :HttpClient, private appConfig:AppConfigService) { 
-    this.lieuUrl=this.appConfig.backEndUrl + "lieu/"
+  constructor(private http :HttpClient, private lieuService:LieuService) { 
+    this.lieuUrl=this.lieuService.lieuUrl + "lieu/"
     this.load();
   }
 
