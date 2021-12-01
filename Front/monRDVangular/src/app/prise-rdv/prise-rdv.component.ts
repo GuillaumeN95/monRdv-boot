@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppConfigService } from '../app-config.service';
 import { ConsultationService } from '../consultation/consultation.service';
 import { CreneauService } from '../creneau/creneau.service';
-import { Consultation } from '../model';
+import { Consultation, Motif, Praticien } from '../model';
 import { MotifService } from '../motif/motif.service';
 import { PatientService } from '../patient/patient.service';
 import { PraticienService } from '../praticien/praticien.service';
@@ -17,7 +17,10 @@ export class PriseRDVComponent implements OnInit {
 
 priseRdvForm:Consultation;
 
-  constructor(private appConfig: AppConfigService, private priseRdvService : PriseRDVService,private praticienService : PraticienService, private motifService : MotifService, private creneauService :CreneauService, private patientService : PatientService, private consultationService: ConsultationService) { }
+  constructor(private appConfig: AppConfigService, private priseRdvService : PriseRDVService,private praticienService : PraticienService, private motifService : MotifService, private creneauService :CreneauService, private patientService : PatientService, private consultationService: ConsultationService) { 
+    this.priseRdvForm = new Consultation();
+    this.priseRdvForm.motif = new Motif();
+  }
 
   ngOnInit(): void {
   }

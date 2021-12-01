@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Praticien } from '../model';
 import { PraticienService } from './praticien.service';
+import { AppConfigService } from '../app-config.service';
+import { PriseRDVService } from '../prise-rdv/prise-rdv.service';
+import { ConsultationService } from '../consultation/consultation.service';
 
 @Component({
   selector: 'app-praticien',
@@ -11,7 +14,7 @@ export class PraticienComponent implements OnInit {
 
   praticienForm: Praticien;
 
-  constructor(private praticienService: PraticienService) { }
+  constructor(private appConfig: AppConfigService, private priseRdvService : PriseRDVService,private praticienService : PraticienService,private consultationService: ConsultationService) { }
 
   ngOnInit(): void {
   }

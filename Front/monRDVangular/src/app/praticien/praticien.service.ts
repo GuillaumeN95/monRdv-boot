@@ -1,13 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Praticien } from '../model';
-
+import { HttpClient } from '@angular/common/http';
+import { AppConfigService } from '../app-config.service';
 @Injectable({
   providedIn: 'root'
 })
 export class PraticienService {
   praticiens: Array<Praticien> = new Array<Praticien>();
 
-  constructor() { }
+  praticienUrl:string;
+
+  constructor(private http: HttpClient, private appConfig: AppConfigService) {
+    this.praticienUrl = this.appConfig.backEndUrl + "praticien/"
+    this.load();
+   }
+
+   
+   load() {
+    this.http.get<Array<Praticien>>(this.praticienUrl).subscribe(response => {
+      this.praticiens = response;
+    }, error => console.log(error));
+  }
 
   findAll(): Array<Praticien> {
     return this.praticiens;

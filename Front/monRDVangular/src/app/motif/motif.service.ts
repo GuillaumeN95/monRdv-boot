@@ -8,11 +8,11 @@ import { AppConfigService } from '../app-config.service';
 })
 export class MotifService {
   motifs: Array<Motif> = new Array<Motif>();
-motifUrl:string;
+  motifUrl: string;
   constructor(private http: HttpClient, private appConfig: AppConfigService) {
     this.motifUrl = this.appConfig.backEndUrl + "motif/"
     this.load();
-   }
+  }
 
   findAll(): Array<Motif> {
     return this.motifs;
