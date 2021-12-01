@@ -107,3 +107,20 @@ export class Lieu{
 }
 
 
+
+
+
+export class Specialite{
+
+    id: number;
+    version: number;
+    nom: string;
+    praticien: Praticien;
+
+    constructor( id?: number, version?: number,nom?: string, praticien?: Praticien){
+        this.id = id;
+        this.version = version;
+        this.nom = nom;
+        this.praticien = praticien;
+    }
+}
