@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Motif } from '../model';
-import { MotifHttpService } from './motif-http.service';
+import { MotifService } from './motif.service';
 
 @Component({
   selector: 'app-motif',
@@ -11,7 +11,7 @@ export class MotifComponent implements OnInit {
 
   motifForm: Motif;
 
-  constructor(private motifService: MotifHttpService) { }
+  constructor(private motifService: MotifService) { }
 
   ngOnInit(): void {
   }

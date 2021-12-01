@@ -10,6 +10,18 @@ import { MotifComponent } from './motif/motif.component';
 import { CreneauComponent } from './creneau/creneau.component';
 import { LieuComponent } from './lieu/lieu.component';
 import { SpecialiteComponent } from './specialite/specialite.component';
+import { PriseRDVComponent } from './prise-rdv/prise-rdv.component';
+import { AppConfigService } from './app-config.service';
+import { PatientService } from './patient/patient.service';
+import { PraticienService } from './praticien/praticien.service';
+import { ConsultationService } from './consultation/consultation.service';
+import { MotifService } from './motif/motif.service';
+import { CreneauService } from './creneau/creneau.service';
+import { LieuService } from './lieu/lieu.service';
+import { SpecialiteService } from './specialite/specialite.service';
+import { PriseRDVService } from './prise-rdv/prise-rdv.service';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,13 +32,16 @@ import { SpecialiteComponent } from './specialite/specialite.component';
     MotifComponent,
     CreneauComponent,
     LieuComponent,
-    SpecialiteComponent
+    SpecialiteComponent,
+    PriseRDVComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AppConfigService, PatientService,PraticienService,ConsultationService,MotifService,CreneauService,LieuService,SpecialiteService,PriseRDVService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

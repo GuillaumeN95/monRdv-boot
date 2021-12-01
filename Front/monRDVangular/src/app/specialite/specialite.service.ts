@@ -46,7 +46,7 @@ export class SpecialiteService {
   }
 
   load() {
-    this.http.get<Array<Specialite>(this.specialiteUrl).subscribe(response => {
+    this.http.get<Array<Specialite>>(this.specialiteUrl).subscribe(response => {
       this.specialites = response;
     }, error => console.log(error));
   }

@@ -3,15 +3,15 @@ export class Motif {
     version: number;
     nom: string;
     nbCreneau: number;
-    specialité: Specialite;
+    specialite: Specialite;
     consultation: Consultation;
 
-    constructor(id?: number, version?: number, nom?: string, nbCreneau?: number, specialité?: Specialite, consultation?: Consultation) {
+    constructor(id?: number, version?: number, nom?: string, nbCreneau?: number, specialite?: Specialite, consultation?: Consultation) {
         this.id = id;
         this.version = version;
         this.nom = nom;
         this.nbCreneau = nbCreneau;
-        this.specialité = specialité;
+        this.specialite = specialite;
         this.consultation = consultation;
 
     }
@@ -27,7 +27,7 @@ export class Praticien {
     carteVitale: boolean;
     dureeCreneau: number;
     specialite: Specialite;
-    creneau: Crenau;
+    creneau: Creneau;
     lieu: Lieu;
 
     constructor(id?: number, version?: number, civilite?: string, nom?: string, prenom?: string, telephone?: string, carteVitale?: boolean, dureeCreneau?: number, specialite?: Specialite, creneau?: Creneau, lieu?: Lieu) {
@@ -53,10 +53,10 @@ export class Consultation
     instruction : string;
     motif : Motif;
     patient : Patient;
+    creneau:Array<Creneau>;
 
 
-
-    constructor(id?: number, version?: number, instruction?:string,motif?:Motif,patient:Patient){
+    constructor(id?: number, version?: number, instruction?:string,motif?:Motif, patient?:Patient){
         this.id = id;
         this.version = version;
         this.instruction=instruction;
@@ -150,7 +150,7 @@ export class Lieu{
         this.praticien = this.praticien;
 }
 
-
+}
 
 
 

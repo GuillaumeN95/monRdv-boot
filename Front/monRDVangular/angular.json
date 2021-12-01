@@ -32,11 +32,11 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_module/bootstrap/scss/bottstrap.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootsrap/dist/js/bootsrap.bundle.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
             ]
           },
           "configurations": {

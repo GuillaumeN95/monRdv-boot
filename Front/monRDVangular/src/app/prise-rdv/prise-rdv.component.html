@@ -1,0 +1,17 @@
+<div class="form-group">
+    <label for="motif">Motif:</label>
+    <select class="form-control" id="motif" [(ngModel)]="priseRdvForm.motif.id">
+        <!-- <select class="form-control" id="motif"> -->
+        <option value="">Choisir un motif</option>
+        <option *ngFor="let motif of listMotif()" [value]="motif.id">{{motif.id}} - {{motif.nom}}</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="creneau">Créneau:</label>
+    <select class="form-control" id="creneau">
+        <!-- <select class="form-control" id="motif"> -->
+        <option value="">Choisir un creneau</option>
+        <option *ngFor="let cre of listCreneau()" [value]="cre.id">{{cre.id}} - {{cre.duree}}</option>
+    </select>
+</div>

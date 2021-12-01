@@ -17,6 +17,10 @@ export class CreneauService {
     this.load();
    }
    
+findByDispo(){
+
+}
+
 
    findAll(): Array<Creneau> {
     return this.creneaux;

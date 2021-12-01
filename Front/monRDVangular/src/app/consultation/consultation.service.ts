@@ -16,6 +16,17 @@ export class ConsultationService {
     this.load();
    }
 
+   create(consultation: Consultation) {
+    this.http.post<Consultation>(this.consultationUrl, consultation).subscribe(resp => {
+      this.load();
+    }, error => console.log(error));
+  }
+
+  modify(consultation: Consultation) {
+    this.http.put<Consultation>(this.consultationUrl + consultation.id, consultation).subscribe(resp => {
+      this.load();
+    }, error => console.log(error));
+  }
 
    load() {
     this.http.get<Array<Consultation>>(this.consultationUrl).subscribe(response => {
